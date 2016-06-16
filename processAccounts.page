@@ -2,7 +2,7 @@
       <apex:form > 
         <apex:pageBlock >
             <apex:commandButton value="Process Selected" action="{!processSelected}" rerender="Process"/>
-            <apex:pageBlockTable value="{!accounts}" var="a" id="table">
+            <apex:pageBlockTable value="{!accountList}" var="a" id="table">
                 <apex:column >
                     <apex:inputCheckbox value="{!a.selected}"/>
                 </apex:column>

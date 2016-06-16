@@ -1,0 +1,23 @@
+<apex:page controller="ProcessAccountsController" >
+      <apex:form > 
+        <apex:pageBlock >
+            <apex:commandButton value="Process Selected" action="{!processSelected}" rerender="Process"/>
+            <apex:pageBlockTable value="{!accounts}" var="a" id="table">
+                <apex:column >
+                    <apex:inputCheckbox value="{!a.selected}"/>
+                </apex:column>
+                <apex:column value="{!a.acc.Name}" />
+                <apex:column value="{!a.acc.Phone}" />
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        
+        <apex:outputPanel id="Process">
+            <apex:pageBlock title="Accounts in Process" id="acc_process" rendered="{!isShowProcess}">
+                <apex:pageBlockTable value="{!selectedAccounts}" var="a" id="table">
+                    <apex:column value="{!a.Name}" />
+                    <apex:column value="{!a.Phone}" />
+                </apex:pageBlockTable>
+            </apex:pageBlock>
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>
